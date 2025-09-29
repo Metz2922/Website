@@ -683,11 +683,21 @@ const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4 text-gray-900 dark:text-white">Connect With Me</h4>
               <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/in/joey-metzen/" 
+                <a
+                  href="https://www.linkedin.com/in/joey-metzen/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 hover:from-blue-200 hover:to-purple-200 dark:hover:from-blue-800 dark:hover:to-purple-800 text-blue-600 dark:text-blue-400 transition-all duration-300 transform hover:scale-105"
                 >
                   <Linkedin size={20} />
+                </a>
+                <a
+                  href="https://github.com/Metz2922"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 hover:from-blue-200 hover:to-purple-200 dark:hover:from-blue-800 dark:hover:to-purple-800 text-blue-600 dark:text-blue-400 transition-all duration-300 transform hover:scale-105"
+                >
+                  <Github size={20} />
                 </a>
               </div>
             </div>
