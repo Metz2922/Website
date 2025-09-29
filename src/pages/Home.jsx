@@ -450,7 +450,7 @@ const ProjectsSection = () => {
   id: 2,
   title: "Autonomous Vehicle Project",
   description: "Self-driving robot capable of autonomous navigation to targets using sensor data. Built with C programming for hardware control and real-time sensor processing.",
-  image: "/public/projects/cybot.png",
+  image: "/projects/cybot.png",
   tags: ["C", "Embedded Systems", "Sensors", "Hardware Control", "GUI"],
   demoUrl: "#",
   year: "2024",
