@@ -468,12 +468,12 @@ const ProjectsSection = () => {
 
   const seniorProject = {
     id: 4,
-    title: "Senior Design Project - Iowa State University",
-    description: "Comprehensive engineering capstone project demonstrating advanced systems integration, project management, and technical documentation skills. This project represents the culmination of my Computer Engineering education at Iowa State.",
+    title: "Semantic Segmentation Optimization - Iowa State University",
+    description: "Engineering capstone project developing an assistive wheelchair technology using eye tracking and semantic segmentation for individuals with cerebral palsy. Optimized U-Net algorithm performance by implementing pipelined multi-core processing on Xilinx Kria KV260 board, increasing throughput from 120ms to 30ms per frame through parallel DPU execution.",
     image: "https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Senior+Design",
-    tags: ["System Design", "Documentation", "Integration", "Testing"],
+    tags: ["Machine Learning", "PyTorch", "Xilinx FPGA", "U-Net", "Embedded Systems", "C++", "ONNX"],
     demoUrl: "#",
-    year: "2025",
+    year: "2024-2025",
   };
 
   return (
