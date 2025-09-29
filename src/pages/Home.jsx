@@ -468,10 +468,10 @@ const ProjectsSection = () => {
 
   const seniorProject = {
     id: 4,
-    title: "Assistive Wheelchair Technology - Iowa State University",
-    description: "Senior design project creating smart wheelchair technology to help people with cerebral palsy. Built eye tracking system that watches for medical warning signs and can automatically adjust the wheelchair position to keep users safe. Worked with machine learning and custom hardware to make the system run fast enough for real-time use.",
+    title: "Semantic Segmentation Optimization - Iowa State University",
+    description: "Engineering capstone project developing assistive wheelchair technology using eye tracking and semantic segmentation for individuals with cerebral palsy. Optimized U-Net algorithm performance by implementing pipelined multi-core processing on Xilinx Kria board, significantly increasing speed through parallel processing.",
     image: "https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Senior+Design",
-    tags: ["Machine Learning", "Eye Tracking", "PyTorch", "Xilinx Hardware", "C++", "Safety Systems"],
+    tags: ["Machine Learning", "PyTorch", "Xilinx FPGA", "U-Net", "Embedded Systems", "C++", "ONNX"],
     demoUrl: "#",
     year: "2024-2025",
   };
