@@ -448,11 +448,11 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: "Autonomous Vehicle Project",
-      description: "Self-driving robot capable of autonomous navigation to targets using sensor data. Built with C programming for hardware control and real-time sensor processing.",
+      title: "Autonomous Vehicle Project (CyBot)",
+      description: "Self-driving robot with obstacle detection and navigation. Programmed sensor integration including bump sensors, cliff sensors, IR distance sensors, and servo-controlled scanning. Built collision avoidance, boundary detection, and autonomous pathfinding algorithms in C for embedded hardware control.",
       image: "/projects/cybot.png",
-      tags: ["C", "Embedded Systems", "Sensors", "Hardware Control", "GUI"],
-      demoUrl: "#",
+      tags: ["C", "Embedded Systems", "Sensors", "Real-Time Control", "Obstacle Avoidance"],
+      demoUrl: "https://github.com/Metz2922/CyBot-Autonomous-Vehicle",
       year: "2024",
     },
     {
