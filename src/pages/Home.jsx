@@ -457,12 +457,12 @@ const ProjectsSection = () => {
     },
     {
       id: 3,
-      title: "Network Systems Engineering",
-      description: "Enterprise network infrastructure design and implementation with focus on security, virtualization, and system hardening.",
-      image: "https://via.placeholder.com/600x400/10B981/ffffff?text=Network+Systems",
-      tags: ["Network Design", "Virtualization", "System Hardening", "Cloud Platforms"],
-      demoUrl: "#",
-      year: "2024",
+      title: "MIPS Processor Design",
+      description: "Built a pipelined MIPS processor from scratch using VHDL. Designed and implemented the instruction fetch, decode, execute, memory, and write-back stages with hazard detection and forwarding units for data and control hazards.",
+      image: "https://via.placeholder.com/600x400/10B981/ffffff?text=MIPS+Processor",
+      tags: ["VHDL", "Computer Architecture", "Pipelining", "Hardware Design", "FPGA"],
+      demoUrl: "https://github.com/Metz2922/MIPS-Processor",
+      year: "2023",
     }
   ];
 
