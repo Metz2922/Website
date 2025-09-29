@@ -436,7 +436,7 @@ const SkillsSection = () => {
 };
 
 const ProjectsSection = () => {
-  const projects = [
+  const featuredProjects = [
     {
       id: 1,
       title: "Android Application Development",
@@ -447,24 +447,34 @@ const ProjectsSection = () => {
       year: "2025",
     },
     {
-  id: 2,
-  title: "Autonomous Vehicle Project",
-  description: "Self-driving robot capable of autonomous navigation to targets using sensor data. Built with C programming for hardware control and real-time sensor processing.",
-  image: "/projects/cybot.png",
-  tags: ["C", "Embedded Systems", "Sensors", "Hardware Control", "GUI"],
-  demoUrl: "#",
-  year: "2024",
-  },
+      id: 2,
+      title: "Autonomous Vehicle Project",
+      description: "Self-driving robot capable of autonomous navigation to targets using sensor data. Built with C programming for hardware control and real-time sensor processing.",
+      image: "/projects/cybot.png",
+      tags: ["C", "Embedded Systems", "Sensors", "Hardware Control", "GUI"],
+      demoUrl: "#",
+      year: "2024",
+    },
     {
       id: 3,
-      title: "Senior Design Project",
-      description: "Comprehensive engineering project demonstrating systems integration, project management, and technical documentation skills.",
-      image: "https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Senior+Design",
-      tags: ["System Design", "Documentation", "Integration", "Testing"],
+      title: "Network Systems Engineering",
+      description: "Enterprise network infrastructure design and implementation with focus on security, virtualization, and system hardening.",
+      image: "https://via.placeholder.com/600x400/10B981/ffffff?text=Network+Systems",
+      tags: ["Network Design", "Virtualization", "System Hardening", "Cloud Platforms"],
       demoUrl: "#",
-      year: "2025",
+      year: "2024",
     }
   ];
+
+  const seniorProject = {
+    id: 4,
+    title: "Senior Design Project - Iowa State University",
+    description: "Comprehensive engineering capstone project demonstrating advanced systems integration, project management, and technical documentation skills. This project represents the culmination of my Computer Engineering education at Iowa State.",
+    image: "https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Senior+Design",
+    tags: ["System Design", "Documentation", "Integration", "Testing"],
+    demoUrl: "#",
+    year: "2025",
+  };
 
   return (
     <section id="projects" className="py-24 px-4 relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
@@ -474,12 +484,12 @@ const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto text-lg">
-          Here are some of my key projects showcasing my skills in software development, 
+          Here are some of my key projects showcasing my skills in software development,
           systems engineering, and embedded systems programming.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {featuredProjects.map((project, key) => (
             <div
               key={key}
               className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:scale-105"
@@ -515,7 +525,7 @@ const ProjectsSection = () => {
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIndex) => (
-                    <span 
+                    <span
                       key={tagIndex}
                       className="px-3 py-1 text-xs font-medium border border-gray-200/50 dark:border-gray-600/50 rounded-full bg-gray-50/80 dark:bg-gray-700/80 text-gray-600 dark:text-gray-300 backdrop-blur-sm"
                     >
@@ -526,6 +536,64 @@ const ProjectsSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mb-16">
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Senior Design Project</span>
+          </h3>
+
+          <div className="group bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-purple-200/50 dark:border-purple-700/50">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <div className="h-80 lg:h-full overflow-hidden relative">
+                <img
+                  src={seniorProject.image}
+                  alt={seniorProject.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-purple-900/30 to-transparent"></div>
+              </div>
+
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-sm font-medium text-purple-600 dark:text-purple-400 bg-purple-100/80 dark:bg-purple-900/50 px-4 py-2 rounded-full backdrop-blur-sm">
+                    {seniorProject.year}
+                  </span>
+                  <span className="text-sm font-medium text-pink-600 dark:text-pink-400 bg-pink-100/80 dark:bg-pink-900/50 px-4 py-2 rounded-full backdrop-blur-sm">
+                    Capstone Project
+                  </span>
+                </div>
+
+                <h4 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">
+                  {seniorProject.title}
+                </h4>
+
+                <p className="text-gray-700 dark:text-gray-300 mb-6 text-base leading-relaxed">
+                  {seniorProject.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {seniorProject.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 text-xs font-medium border border-purple-200/50 dark:border-purple-600/50 rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex space-x-4">
+                  <a
+                    href={seniorProject.demoUrl}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
+                  >
+                    View Project <ExternalLink size={16} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-16">
