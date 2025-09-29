@@ -462,7 +462,7 @@ const ProjectsSection = () => {
       image: "/projects/mips-processor.png",
       tags: ["VHDL", "Computer Architecture", "Pipelining", "Hardware Design", "FPGA"],
       demoUrl: "https://github.com/Metz2922/MIPS-Processor",
-      year: "2023",
+      year: "2024",
     }
   ];
 
