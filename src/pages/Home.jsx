@@ -2,6 +2,9 @@ import { ArrowDown, ArrowUp, ArrowRight, ExternalLink, Github, Menu, X, Moon, Su
 import { useEffect, useState } from "react";
 import emailjs from '@emailjs/browser';
 
+// Initialize EmailJS
+emailjs.init('ctPFVnpd-n1rV7xKp');
+
 const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -622,9 +625,6 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // EmailJS configuration
-    emailjs.init('ctPFVnpd-n1rV7xKp');
 
     const templateParams = {
       from_name: formData.name,
