@@ -633,7 +633,7 @@ const ContactSection = () => {
       message: formData.message,
     };
 
-    emailjs.send('service_qcry779', 'template_f0tnjsl', templateParams)
+    emailjs.send('service_qcry779', 'template_fmtmp4n', templateParams)
       .then(() => {
         alert("Message sent! Thank you for your message. I'll get back to you soon.");
         setFormData({ name: '', email: '', subject: '', message: '' });
