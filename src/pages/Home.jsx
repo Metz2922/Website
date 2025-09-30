@@ -627,10 +627,12 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     const templateParams = {
+      subject: formData.subject,
+      name: formData.name,
       from_name: formData.name,
       from_email: formData.email,
-      subject: formData.subject,
       message: formData.message,
+      time: new Date().toLocaleString(),
     };
 
     emailjs.send('service_qcry779', 'template_fmtmp4n', templateParams)
