@@ -476,7 +476,7 @@ const ProjectsSection = () => {
     description: "Engineering capstone project developing assistive wheelchair technology using eye tracking and semantic segmentation for individuals with cerebral palsy. Optimized U-Net algorithm performance by implementing pipelined multi-core processing on Xilinx Kria board, significantly increasing speed through parallel processing.",
     image: "/projects/KriaBoardPic.avif",
     tags: ["Machine Learning", "PyTorch", "Xilinx FPGA", "U-Net", "Embedded Systems", "C++", "ONNX"],
-    demoUrl: "/projects/Senior-Design-Presentation.pdf",
+    demoUrl: "https://sddec25-01.sd.ece.iastate.edu/",
     year: "2024-2025",
   };
 
