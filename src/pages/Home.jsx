@@ -671,12 +671,27 @@ const ContactSection = () => {
                   <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
+                  <h4 className="font-medium text-gray-900 dark:text-white">Personal Email</h4>
                   <a
                     href="mailto:metzenjoey@gmail.com"
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     metzenjoey@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4 group">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 group-hover:from-blue-200 group-hover:to-purple-200 dark:group-hover:from-blue-800 dark:group-hover:to-purple-800 transition-all duration-300">
+                  <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 dark:text-white">School Email</h4>
+                  <a
+                    href="mailto:jjmetzen@iastate.edu"
+                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    jjmetzen@iastate.edu
                   </a>
                 </div>
               </div>
