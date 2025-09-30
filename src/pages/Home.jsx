@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUp, ArrowRight, ExternalLink, Github, Menu, X, Moon, Sun, Briefcase, Code, Cpu, Mail, MapPin, Phone, Send, Linkedin, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const AnimatedBackground = () => {
   return (
@@ -439,12 +440,12 @@ const ProjectsSection = () => {
   const featuredProjects = [
     {
       id: 1,
-      title: "Android Application Development",
-      description: "Full-stack Android app with Java, Spring Boot, SQL, and Hibernate ORM. Features complete user data management with CRUD operations and API integration.",
+      title: "Fitness Workout Android Application",
+      description: "Full-stack fitness tracking app with Android frontend and Spring Boot backend. Built RESTful APIs for user management, workout tracking, nutrition goals, social features, and payment integration. Implemented real-time chat with WebSockets and third-party API integration.",
       image: "https://via.placeholder.com/600x400/3B82F6/ffffff?text=Android+App",
-      tags: ["Java", "Spring Boot", "SQL", "Hibernate", "Android", "POSTMAN"],
-      demoUrl: "#",
-      year: "2025",
+      tags: ["Java", "Spring Boot", "MySQL", "Hibernate", "Android", "WebSocket", "REST API"],
+      demoUrl: "https://github.com/Metz2922/Workout-App",
+      year: "2024",
     },
     {
       id: 2,
@@ -611,13 +612,41 @@ const ProjectsSection = () => {
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      alert("Message sent! Thank you for your message. I'll get back to you soon.");
-      setIsSubmitting(false);
-    }, 1500);
+
+    // EmailJS configuration
+    const serviceId = 'service_qcry779';
+    const templateId = 'template_6frizkz';
+    const publicKey = 'ctPFVnpd-n1rV7xKp';
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_email: 'metzenjoey@gmail.com'
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then(() => {
+        alert("Message sent! Thank you for your message. I'll get back to you soon.");
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setIsSubmitting(false);
+      })
+      .catch((error) => {
+        console.error('Failed to send email:', error);
+        alert("Sorry, there was an error sending your message. Please try emailing me directly at metzenjoey@gmail.com");
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -644,10 +673,10 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
                   <a
-                    href="mailto:jjmetzen@iastate.edu"
+                    href="mailto:metzenjoey@gmail.com"
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    jjmetzen@iastate.edu
+                    metzenjoey@gmail.com
                   </a>
                 </div>
               </div>
@@ -706,15 +735,18 @@ const ContactSection = () => {
           <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-gray-200/50 dark:border-gray-600/50">
             <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Send a Message</h3>
 
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">
                   Your Name
                 </label>
                 <input
                   type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300/50 dark:border-gray-600/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-300"
                   placeholder="John Doe"
+                  required
                 />
               </div>
 
@@ -724,8 +756,11 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300/50 dark:border-gray-600/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-300"
                   placeholder="john@example.com"
+                  required
                 />
               </div>
 
@@ -735,8 +770,11 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="text"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300/50 dark:border-gray-600/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-300"
                   placeholder="Project Collaboration"
+                  required
                 />
               </div>
 
@@ -746,13 +784,16 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   rows="5"
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300/50 dark:border-gray-600/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 resize-none transition-all duration-300"
                   placeholder="Hello Joseph, I'd like to discuss..."
+                  required
                 />
               </div>
 
               <button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={isSubmitting}
                 className={`w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium ${
                   isSubmitting ? "opacity-70 cursor-not-allowed" : ""
@@ -761,7 +802,7 @@ const ContactSection = () => {
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
