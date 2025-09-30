@@ -625,7 +625,7 @@ const ContactSection = () => {
 
     // EmailJS configuration
     const serviceId = 'service_qcry779';
-    const templateId = 'template_6frizkz';
+    const templateId = 'template_f0tnjsl';
     const publicKey = 'ctPFVnpd-n1rV7xKp';
 
     const templateParams = {
