@@ -624,19 +624,16 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     // EmailJS configuration
-    const serviceId = 'service_qcry779';
-    const templateId = 'template_f0tnjsl';
-    const publicKey = 'ctPFVnpd-n1rV7xKp';
+    emailjs.init('ctPFVnpd-n1rV7xKp');
 
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
       subject: formData.subject,
       message: formData.message,
-      to_email: 'metzenjoey@gmail.com'
     };
 
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
+    emailjs.send('service_qcry779', 'template_f0tnjsl', templateParams)
       .then(() => {
         alert("Message sent! Thank you for your message. I'll get back to you soon.");
         setFormData({ name: '', email: '', subject: '', message: '' });
