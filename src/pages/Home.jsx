@@ -771,6 +771,11 @@ const ReflectionsSection = () => {
       title: "Ethics Reflection",
       description: "An exploration of ethical considerations in engineering and technology, examining real-world scenarios and professional responsibilities.",
       pdfUrl: "/reflections/ethics-reflection.pdf"
+    },
+    {
+      title: "General Education Reflection",
+      description: "A reflection on the impact of general education coursework on my engineering education and broader perspective.",
+      pdfUrl: "/reflections/general-education-reflection.pdf"
     }
   ];
 
