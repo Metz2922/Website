@@ -143,6 +143,7 @@ const Navbar = () => {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Reflections", href: "#reflections" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -759,6 +760,69 @@ const ProjectsSection = () => {
   );
 };
 
+const ReflectionsSection = () => {
+  const reflections = [
+    {
+      title: "Cumulative Reflection",
+      description: "A comprehensive reflection on my academic journey and professional development throughout my time at Iowa State University.",
+      pdfUrl: "/reflections/cumulative-reflection.pdf"
+    },
+    {
+      title: "Ethics Reflection",
+      description: "An exploration of ethical considerations in engineering and technology, examining real-world scenarios and professional responsibilities.",
+      pdfUrl: "/reflections/ethics-reflection.pdf"
+    }
+  ];
+
+  return (
+    <section id="reflections" className="py-24 px-4 relative bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Reflections</span>
+        </h2>
+
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto text-lg">
+          Collection of my academic reflections and technical papers.
+        </p>
+
+        {reflections.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {reflections.map((reflection, index) => (
+              <div
+                key={index}
+                className="group bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-600/50 hover:scale-105"
+              >
+                <div className="flex flex-col h-full">
+                  <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                    {reflection.title}
+                  </h3>
+                  {reflection.description && (
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed flex-grow">
+                      {reflection.description}
+                    </p>
+                  )}
+                  <a
+                    href={reflection.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-md font-medium text-sm mt-auto"
+                  >
+                    View PDF <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-500 dark:text-gray-400">No reflections available yet.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -999,6 +1063,7 @@ export const Home = () => {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        <ReflectionsSection />
         <ContactSection />
       </main>
       <Footer />
