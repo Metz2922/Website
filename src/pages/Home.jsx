@@ -440,6 +440,18 @@ const SkillsSection = () => {
 };
 
 const ProjectsSection = () => {
+  const [expandedProjects, setExpandedProjects] = useState(new Set());
+
+  const toggleProject = (id) => {
+    const newExpanded = new Set(expandedProjects);
+    if (newExpanded.has(id)) {
+      newExpanded.delete(id);
+    } else {
+      newExpanded.add(id);
+    }
+    setExpandedProjects(newExpanded);
+  };
+
   const featuredProjects = [
     {
       id: 1,
@@ -449,6 +461,17 @@ const ProjectsSection = () => {
       tags: ["Java", "Spring Boot", "MySQL", "Hibernate", "Android", "WebSocket", "REST API"],
       demoUrl: "https://github.com/Metz2922/Workout-App",
       year: "2024",
+      role: "Lead Developer",
+      skillsGained: [
+        "Full-stack development with Spring Boot and Android",
+        "RESTful API design and implementation",
+        "Real-time communication with WebSockets",
+        "Database design and ORM with Hibernate",
+        "Third-party API integration",
+        "Payment processing integration"
+      ],
+      resources: ["Spring Boot Documentation", "Android Developer Guides", "WebSocket Protocol", "Stripe API"],
+      bigPicture: "This project demonstrates end-to-end application development, from database architecture to mobile user interface, showcasing the ability to build scalable, production-ready applications with modern web technologies."
     },
     {
       id: 2,
@@ -458,6 +481,17 @@ const ProjectsSection = () => {
       tags: ["C", "Embedded Systems", "Sensors", "Real-Time Control", "Obstacle Avoidance"],
       demoUrl: "https://github.com/Metz2922/CyBot-Autonomous-Vehicle",
       year: "2024",
+      role: "Embedded Systems Developer",
+      skillsGained: [
+        "Low-level embedded C programming",
+        "Sensor integration and calibration",
+        "Real-time control systems",
+        "Autonomous navigation algorithms",
+        "Hardware-software interface design",
+        "Interrupt-driven programming"
+      ],
+      resources: ["TM4C123 Microcontroller Documentation", "Sensor Datasheets", "Embedded C Best Practices"],
+      bigPicture: "This autonomous vehicle project bridges the gap between hardware and software, demonstrating proficiency in embedded systems design, sensor fusion, and autonomous decision-making algorithms critical for robotics and IoT applications."
     },
     {
       id: 3,
@@ -467,6 +501,17 @@ const ProjectsSection = () => {
       tags: ["VHDL", "Computer Architecture", "Pipelining", "Hardware Design", "FPGA"],
       demoUrl: "https://github.com/Metz2922/MIPS-Processor",
       year: "2024",
+      role: "Hardware Designer",
+      skillsGained: [
+        "Digital hardware design with VHDL",
+        "Computer architecture principles",
+        "Pipeline hazard detection and resolution",
+        "FPGA synthesis and implementation",
+        "Hardware debugging and verification",
+        "Processor performance optimization"
+      ],
+      resources: ["MIPS Architecture Reference", "VHDL Language Manual", "FPGA Development Tools", "Computer Architecture Textbooks"],
+      bigPicture: "This processor design project provides deep understanding of computer architecture fundamentals, demonstrating ability to design complex digital systems from the ground up and optimize performance through advanced techniques like pipelining and hazard mitigation."
     }
   ];
 
@@ -478,6 +523,17 @@ const ProjectsSection = () => {
     tags: ["Machine Learning", "PyTorch", "Xilinx FPGA", "U-Net", "Embedded Systems", "C++", "ONNX"],
     demoUrl: "https://sddec25-01.sd.ece.iastate.edu/",
     year: "2024-2025",
+    role: "ML Optimization Engineer",
+    skillsGained: [
+      "Deep learning model optimization for embedded systems",
+      "Multi-core parallel processing on FPGA platforms",
+      "Hardware-accelerated inference with Xilinx Vitis AI",
+      "U-Net semantic segmentation architecture",
+      "Real-time computer vision for assistive technology",
+      "Cross-platform model deployment (PyTorch to ONNX)"
+    ],
+    resources: ["Xilinx Kria KV260 Documentation", "PyTorch Framework", "ONNX Runtime", "U-Net Research Papers", "Vitis AI Tools"],
+    bigPicture: "This capstone project addresses real-world accessibility challenges by combining machine learning with embedded systems. It demonstrates the ability to optimize complex neural networks for resource-constrained hardware, enabling real-time assistive technology that improves quality of life for individuals with disabilities."
   };
 
   return (
@@ -496,7 +552,7 @@ const ProjectsSection = () => {
           {featuredProjects.map((project, key) => (
             <div
               key={key}
-              className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:scale-105"
+              className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50"
             >
               <div className="h-48 overflow-hidden relative">
                 <img
@@ -513,8 +569,16 @@ const ProjectsSection = () => {
                     {project.year}
                   </span>
                   <div className="flex space-x-3">
+                    <button
+                      onClick={() => toggleProject(project.id)}
+                      className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/50"
+                    >
+                      <ArrowRight size={20} className={`transform transition-transform duration-300 ${expandedProjects.has(project.id) ? 'rotate-90' : ''}`} />
+                    </button>
                     <a
                       href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/50"
                     >
                       <ExternalLink size={20} />
@@ -527,7 +591,7 @@ const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
@@ -537,6 +601,43 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
+
+                {expandedProjects.has(project.id) && (
+                  <div className="mt-6 pt-6 border-t border-gray-200/50 dark:border-gray-600/50 space-y-4 animate-in fade-in duration-300">
+                    <div>
+                      <h4 className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">My Role</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{project.role}</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">Skills & Knowledge Gained</h4>
+                      <ul className="space-y-1">
+                        {project.skillsGained.map((skill, idx) => (
+                          <li key={idx} className="text-sm text-gray-600 dark:text-gray-300 flex items-start">
+                            <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                            <span>{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">Resources Used</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.resources.map((resource, idx) => (
+                          <span key={idx} className="text-xs px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded">
+                            {resource}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">Big Picture Contribution</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{project.bigPicture}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -566,6 +667,12 @@ const ProjectsSection = () => {
                   <span className="text-sm font-medium text-pink-600 dark:text-pink-400 bg-pink-100/80 dark:bg-pink-900/50 px-4 py-2 rounded-full backdrop-blur-sm">
                     Capstone Project
                   </span>
+                  <button
+                    onClick={() => toggleProject(seniorProject.id)}
+                    className="ml-auto text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-300 p-2 rounded-full hover:bg-purple-100 dark:hover:bg-purple-900/50"
+                  >
+                    <ArrowRight size={20} className={`transform transition-transform duration-300 ${expandedProjects.has(seniorProject.id) ? 'rotate-90' : ''}`} />
+                  </button>
                 </div>
 
                 <h4 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">
@@ -587,9 +694,48 @@ const ProjectsSection = () => {
                   ))}
                 </div>
 
+                {expandedProjects.has(seniorProject.id) && (
+                  <div className="mb-6 p-6 bg-white/60 dark:bg-gray-800/60 rounded-xl space-y-4 border border-purple-200/50 dark:border-purple-600/50">
+                    <div>
+                      <h5 className="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-2">My Role</h5>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{seniorProject.role}</p>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-2">Skills & Knowledge Gained</h5>
+                      <ul className="space-y-1">
+                        {seniorProject.skillsGained.map((skill, idx) => (
+                          <li key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start">
+                            <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                            <span>{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-2">Resources Used</h5>
+                      <div className="flex flex-wrap gap-2">
+                        {seniorProject.resources.map((resource, idx) => (
+                          <span key={idx} className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 rounded">
+                            {resource}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-2">Big Picture Contribution</h5>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{seniorProject.bigPicture}</p>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex space-x-4">
                   <a
                     href={seniorProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
                   >
                     View Project <ExternalLink size={16} />
