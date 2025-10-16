@@ -458,7 +458,7 @@ const ProjectsSection = () => {
       id: 1,
       title: "Fitness Workout Android Application",
       description: "Full-stack fitness tracking app with Android frontend and Spring Boot backend. Built RESTful APIs for user management, workout tracking, nutrition goals, social features, and payment integration. Implemented real-time chat with WebSockets and third-party API integration.",
-      image: "https://via.placeholder.com/600x400/3B82F6/ffffff?text=Android+App",
+      image: "/projects/fitnessjava.png",
       tags: ["Java", "Spring Boot", "MySQL", "Hibernate", "Android", "WebSocket", "REST API"],
       demoUrl: "https://github.com/Metz2922/Workout-App",
       year: "2024",
