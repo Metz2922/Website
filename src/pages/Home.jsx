@@ -1059,7 +1059,7 @@ const Footer = () => {
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-purple-900/10 text-gray-900 dark:text-white overflow-x-hidden transition-all duration-500">
+    <div className="min-h-screen bg-gray-50 dark:from-gray-900 dark:via-blue-900/10 dark:to-purple-900/10 dark:bg-gradient-to-br text-gray-900 dark:text-white overflow-x-hidden transition-all duration-500">
       <AnimatedBackground />
       <ThemeToggle />
       <Navbar />

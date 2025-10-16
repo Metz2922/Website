@@ -1,9 +1,9 @@
 # About My Portfolio Website
 ## A Reflection by Joseph Metzen
 
-Hey everyone, I want to walk you through my portfolio website and why I built it the way I did.
+Hey everyone, My name is Joseph Metzen. I want to walk you through my portfolio website and why I built my website the way I did.
 
-I'm a Computer Engineering student at Iowa State, and I work on everything from hardware to software. I needed a website that could show all these different sides - building robots, designing processors, making apps - without being confusing or overwhelming.
+I'm a Computer Engineering at Iowa State, and I work on everything from hardware to software. I needed a website that could show all these different sides for example building robots, designing processors, making apps - without being confusing or overwhelming.
 
 ## The Tech Stack and Design
 
