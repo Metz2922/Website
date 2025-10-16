@@ -9,7 +9,7 @@ const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-pink-900/20 transition-colors duration-500"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/10 via-purple-50/5 to-pink-50/10 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-pink-900/20 transition-colors duration-500"></div>
       </div>
 
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] transition-opacity duration-500">
@@ -49,10 +49,10 @@ const AnimatedBackground = () => {
         ))}
       </div>
 
-      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 dark:from-blue-400/30 dark:to-cyan-400/30 rounded-full animate-pulse blur-sm transition-colors duration-500"></div>
-      <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-purple-400/20 to-pink-400/20 dark:from-purple-400/30 dark:to-pink-400/30 rounded-full animate-bounce blur-sm transition-colors duration-500" style={{animationDelay: '1s'}}></div>
-      <div className="absolute bottom-40 left-20 w-12 h-12 bg-gradient-to-r from-green-400/20 to-emerald-400/20 dark:from-green-400/30 dark:to-emerald-400/30 rounded-full animate-ping blur-sm transition-colors duration-500" style={{animationDelay: '2s'}}></div>
-      <div className="absolute bottom-20 right-40 w-24 h-24 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 dark:from-yellow-400/30 dark:to-orange-400/30 rounded-full animate-pulse blur-sm transition-colors duration-500" style={{animationDelay: '0.5s'}}></div>
+      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-400/5 to-cyan-400/5 dark:from-blue-400/30 dark:to-cyan-400/30 rounded-full animate-pulse blur-sm transition-colors duration-500"></div>
+      <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-purple-400/5 to-pink-400/5 dark:from-purple-400/30 dark:to-pink-400/30 rounded-full animate-bounce blur-sm transition-colors duration-500" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-40 left-20 w-12 h-12 bg-gradient-to-r from-green-400/5 to-emerald-400/5 dark:from-green-400/30 dark:to-emerald-400/30 rounded-full animate-ping blur-sm transition-colors duration-500" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-20 right-40 w-24 h-24 bg-gradient-to-r from-yellow-400/5 to-orange-400/5 dark:from-yellow-400/30 dark:to-orange-400/30 rounded-full animate-pulse blur-sm transition-colors duration-500" style={{animationDelay: '0.5s'}}></div>
       
       <div className="absolute top-1/3 right-1/4 opacity-[0.03] dark:opacity-[0.05] animate-spin transition-opacity duration-500" style={{animationDuration: '20s'}}>
         <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,14 +68,14 @@ const AnimatedBackground = () => {
         </svg>
       </div>
       
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-300/10 via-purple-300/10 to-pink-300/10 dark:from-blue-400/20 dark:via-purple-400/20 dark:to-pink-400/20 rounded-full blur-3xl animate-pulse transition-colors duration-500"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-300/10 via-pink-300/10 to-red-300/10 dark:from-purple-400/20 dark:via-pink-400/20 dark:to-red-400/20 rounded-full blur-3xl animate-pulse transition-colors duration-500" style={{animationDelay: '1.5s'}}></div>
+      <div className="hidden dark:block absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse transition-colors duration-500"></div>
+      <div className="hidden dark:block absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-red-400/20 rounded-full blur-3xl animate-pulse transition-colors duration-500" style={{animationDelay: '1.5s'}}></div>
       
-      <div className="absolute inset-0 opacity-20 dark:opacity-30 transition-opacity duration-500">
+      <div className="absolute inset-0 opacity-5 dark:opacity-30 transition-opacity duration-500">
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400/40 dark:bg-blue-300/60 rounded-full animate-pulse transition-colors duration-500"
+            className="absolute w-1 h-1 bg-blue-400/20 dark:bg-blue-300/60 rounded-full animate-pulse transition-colors duration-500"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
