@@ -830,6 +830,7 @@ const ReflectionsSection = () => {
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -916,12 +917,21 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 dark:text-white">Phone</h4>
-                  <a
-                    href="tel:+13192707454"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                  >
-                    (319) 270-7454
-                  </a>
+                  {showPhone ? (
+                    <a
+                      href="tel:+13192707454"
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    >
+                      (319) 270-7454
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => setShowPhone(true)}
+                      className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium text-sm underline decoration-dotted"
+                    >
+                      Click to reveal phone number
+                    </button>
+                  )}
                 </div>
               </div>
               
